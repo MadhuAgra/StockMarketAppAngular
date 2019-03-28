@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+  <span>Stock Market App</span>
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+      <div class="mg-l-5">
+      <button mat-raised-button (click)="about()">About</button></div>
+      <div class="mg-l-5"><button mat-raised-button (click)="contact()">Contact</button></div>
+      <div class="mg-l-5"><button mat-raised-button routerLink="/register" color="accent">Register</button></div>
+   </mat-toolbar-row>
+</mat-toolbar>
+<!-- <div>
+    <img src="assets/images/login.jpg" alt="Avatar" style="width:480px;height:210px;" />
+</div> -->
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form" #f="ngForm">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Email" [formControl]="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+              <mat-error *ngIf="email.invalid && email.dirty">Email format is invalid</mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Password" [formControl]="password" type="password" required>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button [disabled]="email.invalid || password.invalid" (click)="login()" color="primary">Login</button>
+  </mat-card-actions>
+  </mat-card>

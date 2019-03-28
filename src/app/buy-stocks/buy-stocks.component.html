@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="back()">home</mat-icon>
+          </button>
+    <!-- <button mat-raised-button (click)="back()">Back</button> -->
+      <span class="example-fill-remaining-space"></span>
+      <span class="align-center"></span>
+      <span class="example-spacer"></span>
+      <div class="mg-l-5"><button mat-raised-button >About</button></div>
+      <div class="mg-l-5"><button mat-raised-button routerLink="/login">Logout</button></div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+<br/>
+<br/>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let item of stockTradeService.allStockDetails">
+      <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h1>{{item.stockName}}</h1>
+              <img src="assets/images/{{item.stockName}}.jpg" alt="Avatar" style="width:480px;height:210px;" />
+             
+            </div>
+            <div class="flip-card-back">
+                <h1>Value:{{item.stockValue}}</h1>
+                <h1>Trend:{{item.stockTrend}}</h1>
+                <button mat-raised-button color="primary" (click)="openDialog(item)">Buy</button>
+            </div>
+          </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

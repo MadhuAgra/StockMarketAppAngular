@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{data.stock.stockName}}</h1>
+<div mat-dialog-content>
+        <p>How many shares you want to sell?</p>
+        <mat-form-field>
+          <input matInput [formControl]="quantity" placeholder="Quantity" pattern="^[1-9]{1}[0-9]*$"  required>
+          <mat-error *ngIf="quantity.invalid && quantity.dirty">Enter a positive integral value.</mat-error>
+        </mat-form-field>
+      </div>
+<div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onOkClick()" [disabled]="quantity.invalid" color="primary">Ok</button>
+</div>

@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Welcome {{user.userName}}</span>
+    <span class="example-fill-remaining-space"></span>
+    <span class="align-center"></span>
+    <span class="example-spacer"></span>
+    <div class="mg-l-5">
+    <button mat-raised-button >About</button></div>
+    <div class="mg-l-5"><button mat-raised-button color="accent" (click)="openDialog()">Portfolio</button></div>
+    <div class="mg-l-5"><button mat-raised-button routerLink="/login">Logout</button></div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div style="margin-top: 20px;">
+<div style="width: 100%;">
+  <div style="text-align: center;">
+<button mat-raised-button color="accent" (click)="buyStocks()" >Buy Stocks</button>
+</div>
+</div>
+<mat-grid-list cols="3" rowHeight="2:1" >
+    <mat-grid-tile *ngFor="let item of Stocks">
+      <div class="flip-card" on-mouseover='over(item.stockId)'>
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              
+              <h1>{{item.stockName}}</h1>
+              <img src="assets/images/{{item.stockName}}.jpg" alt="Avatar" style="width:480px;height:210px;" />
+            </div>
+            <div class="flip-card-back">
+              <h1>You have {{quantity}} shares</h1>
+              <button mat-raised-button color="primary" (click)="sellStocks(item)">Sell shares</button>
+            </div>
+          </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>
+</div>
